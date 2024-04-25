@@ -4,7 +4,7 @@ import { QuestionService } from "../services/question.service";
 import { Question } from "../entities/question.entity";
 import { QuizService } from "../services/quiz.service";
 
-@Controller('Question')
+@Controller('question')
 export class QuestionController{
 
     constructor( 
