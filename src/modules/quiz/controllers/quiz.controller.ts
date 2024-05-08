@@ -1,13 +1,16 @@
-import { Body, Controller, DefaultValuePipe, Get, HttpCode, Param, ParseIntPipe, Post, Query, UsePipes, ValidationPipe } from '@nestjs/common';
+import { Body, Controller, DefaultValuePipe, Get, HttpCode, Param, ParseIntPipe, Post, Query, UseGuards, UsePipes, ValidationPipe } from '@nestjs/common';
 import { QuizService } from '../services/quiz.service';
 import { CreateQuizDto } from '../dtos/create-quiz.dto';
 import { Quiz } from '../entities/quiz.entity';
-import { ApiCreatedResponse, ApiOkResponse, ApiTags } from '@nestjs/swagger';
+import { ApiCreatedResponse, ApiOkResponse, ApiSecurity, ApiTags } from '@nestjs/swagger';
 import { IPaginationOptions, Pagination } from 'nestjs-typeorm-paginate';
 import { ApiPaginatedResponse } from 'src/common/decorator/api-pagination.response';
+import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('Quiz')
 @Controller('quiz')
+@ApiSecurity('bearer')
+@UseGuards(AuthGuard('jwt'))
 export class QuizController {
 
     constructor(private quizService: QuizService){}

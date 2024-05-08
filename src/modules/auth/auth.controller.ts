@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Request, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { AuthService } from './auth.service';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Auth')
 @Controller('auth')
@@ -17,6 +17,7 @@ export class AuthController {
     }
 
 
+    @ApiBearerAuth()
     @UseGuards(AuthGuard('jwt'))
     @Get('user')
     async user(@Request() req): Promise<any> {
