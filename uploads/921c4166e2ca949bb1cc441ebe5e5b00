@@ -1,0 +1,28 @@
+-Yeni nest projesi oluşturmak için
+nest new Projeadi
+-Projeyi yapılanan değişiklikleri izlenerek çalıştırmak için
+nest start --watch 
+-Swagger ui eklemek için 
+npm install --save @nestjs/swagger
+-Typeorm eklemek için 
+npm install --save @nestjs/typeorm typeorm mysql2
+-Modül oluşturmak için
+nest generate module Modüladi
+-Controller oluşturmak için
+nest generate controller Controlleradi
+-Servis oluşturmak için
+nest generate service Servisadi
+-Class validator eklemek için
+npm install class-validator
+-JWT eklemek için
+npm i @nestjs/jwt         bu ikisi şifreleme işlemleri içindir.
+-Argon2 eklemek için
+npm i argon2
+-Passport eklemek için
+npm install --save @nestjs/passport passport passport-local
+npm install --D @types/passport-local @types/passport
+-Passport jwt eklemek için
+npm i @nestjs/jwt passport-jwt
+npm i --D @types/passport-jwt
+-Sayfalandırma için
+npm i nestjs-typeorm-paginate
