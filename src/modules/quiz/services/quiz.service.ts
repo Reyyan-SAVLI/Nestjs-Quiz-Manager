@@ -4,6 +4,8 @@ import { CreateQuizDto } from "../dtos/create-quiz.dto";
 import { Quiz } from "../entities/quiz.entity";
 import { Repository } from "typeorm";
 import { IPaginationOptions, Pagination, paginate} from "nestjs-typeorm-paginate";
+import { OnEvent } from "@nestjs/event-emitter";
+import { ResponseAddEvent } from "../events/response-add.event";
 
 
 @Injectable()
@@ -37,5 +39,11 @@ export class QuizService{
 
     async createNewQuiz(quiz: CreateQuizDto){
         return await this.quizRepository.save(quiz);
+    }
+
+    @OnEvent('response.submitted')
+    checkQuizCompleted(payload: ResponseAddEvent){
+
+        console.log('checkQuizCompleted', payload);
     }
 }
