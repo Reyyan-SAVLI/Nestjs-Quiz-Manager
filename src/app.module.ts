@@ -10,7 +10,7 @@ import { AuthModule } from './modules/auth/auth.module';
 import { ApiTokenCheckMiddleware } from './common/middleware/api-token-check.middleware';
 import { EventEmitterModule } from '@nestjs/event-emitter';
 import { MulterModule } from '@nestjs/platform-express';
-import { SearchModule } from './modules/search/search.module';
+
 
 @Module({
   imports: [
@@ -20,8 +20,7 @@ import { SearchModule } from './modules/search/search.module';
   MulterModule.register({ dest: './uploads'}),
   QuizModule, 
   UserModule, 
-  AuthModule, 
-  SearchModule],
+  AuthModule],
   controllers: [AppController],
   providers: [AppService],
 })
